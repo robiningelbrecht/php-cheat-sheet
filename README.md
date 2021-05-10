@@ -44,3 +44,15 @@ array(5) {
 **/
 
 ``` 
+Antoher example:
+
+```php
+$arr1 = [1, 2, 3];
+$arr2 = [4, 5, 6];
+
+// Will output the same.
+var_dump(array(...$arr1, ...$arr2));
+var_dump(array_merge($arr1, $arr2));
+
+
+``` 
