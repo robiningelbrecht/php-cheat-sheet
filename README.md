@@ -1,5 +1,50 @@
 # php-cheat-sheet
 
+## PHP 8.x
+
+### 1. The nullsafe operator
+
+```php
+$startDate = $booking->getStartDate();
+$dateAsString = $startDate ? $startDate->asDateTimeString() : null;
+
+// Is equivalent to:
+$dateAsString = $booking->getStartDate()?->asDateTimeString();
+
+// Can be chained:
+$country = $session?->user?->getAddress()?->country;
+
+``` 
+
+### 2. Names arguments:
+
+```php
+// Allows you to pass in values to a function, by specifying the value name, 
+// so that you don't have to take their order into consideration
+function foo(string $a, string $b, ?string $c = null, ?string $d = null) 
+{ /* … */ }
+
+foo(
+    b: 'value b', 
+    a: 'value a', 
+    d: 'value d',
+);
+
+``` 
+
+### 3. Match expression 
+
+```php
+// You could call it the big brother of the switch expression.
+$message = match ($statusCode) {
+    200, 300 => null,
+    400 => 'not found',
+    500 => 'server error',
+    default => 'unknown status code',
+};
+
+``` 
+
 ## PHP 7.x
 
 ### 1. Arrow functions support
