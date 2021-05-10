@@ -45,6 +45,31 @@ $message = match ($statusCode) {
 
 ``` 
 
+### 4. Throw expression
+
+```php
+$triggerError = fn () => throw new MyError();
+$foo = $bar['offset'] ?? throw new OffsetDoesNotExist('offset');
+
+``` 
+
+### 5. New str_contains() function
+
+```php
+if (strpos('string with lots of words', 'words') !== false) { /* … */ }
+// Is equivalent to:
+if (str_contains('string with lots of words', 'words')) { /* … */ }
+
+``` 
+
+### 6. New str_starts_with() and str_ends_with() functions
+
+```php
+str_starts_with('haystack', 'hay'); // true
+str_ends_with('haystack', 'stack'); // true
+
+``` 
+
 ## PHP 7.x
 
 ### 1. Arrow functions support
